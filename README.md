@@ -4,8 +4,8 @@ This application writes a simple mosaic/panorama algorithm. A panorama is a wide
 ## Mosaic based on an affine transformation:
 
 The following two sample Parliament images are loaded:
-![Capture](https://user-images.githubusercontent.com/32462270/117908817-1fef6f80-b2a7-11eb-9d12-95f13087babf.PNG)
-
+<kbd>![Capture](https://user-images.githubusercontent.com/32462270/117908817-1fef6f80-b2a7-11eb-9d12-95f13087babf.PNG)
+</kbd>
 
 The stitching is performed based on the following steps:
 1. Preprocessing: Load 2 sample images, convert to single and to grayscale.
@@ -17,17 +17,20 @@ The stitching is performed based on the following steps:
 7. Create panorama: Using the final affine transformation recovered using RANSAC, generate the final mosaic and display the color mosaic result to the screen.
 
 Affine panorama result using the Parliament images:
-![Capture](https://user-images.githubusercontent.com/32462270/117909419-34803780-b2a8-11eb-897b-7cf92ce2d75c.PNG)
+<kbd>![Capture](https://user-images.githubusercontent.com/32462270/117909419-34803780-b2a8-11eb-897b-7cf92ce2d75c.PNG)
+</kbd>
 
 ## Panorama based on a homography transformation:
 The following two sample Egerton Ryerson statue images are loaded:
-![Capture](https://user-images.githubusercontent.com/32462270/117909677-ace6f880-b2a8-11eb-8aa9-761a874b8537.PNG)
+<kbd>![Capture](https://user-images.githubusercontent.com/32462270/117909677-ace6f880-b2a8-11eb-8aa9-761a874b8537.PNG)
+</kbd>
 
 The panorama based on a homography transformation is performed based on the following steps:
 1. Rreuse the code from Mosaic but swap out the parts that refer to the affine transformation with the homography.
 2. The minimum number of point correspondences to estimate a homography is four. Using a homography yields a set of homogeneous linear equations, AX = 0. The solution to both the system of homogeneous equations consisting of four point correspondences and homogeneous least squares is obtained from the singular value decomposition (SVD) of A by the singular vector corresponding to the smallest singular value: [U,S,V]=svd(A); X = V(:,end).
 3. Display the color mosaic result to the screen: Using the RANSAC-based homography code generate the mosaic using the Egerton Ryerson images.
 
-Hhomography panorama result using the Egerton Ryerson statue images:
-![image](https://user-images.githubusercontent.com/32462270/117910064-457d7880-b2a9-11eb-939a-82dc8c01f1b0.png)
+Homography panorama result using the Egerton Ryerson statue images:
+<kbd>![image](https://user-images.githubusercontent.com/32462270/117910064-457d7880-b2a9-11eb-939a-82dc8c01f1b0.png)
+</kbd>
 
